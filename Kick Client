@@ -1,1 +1,2 @@
-
+-- for this you will need a textbox and button in a gui, a LocalScript in the gui, a event in replicated storage under a folder named "Events" and a Server side script
+--
