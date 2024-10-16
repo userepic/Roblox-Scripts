@@ -1,2 +1,25 @@
--- for this you will need a textbox and button in a gui, a LocalScript in the gui, a event in replicated storage under a folder named "Events" and a Server side script
---
+-- for this you will need a textbox and button in a gui, a LocalScript in the gui, a event named "KickEvent" in replicated storage under a folder named "Events" and a Server side script
+
+-- Local Scipt inside of button gui
+
+local button = script.Parent
+local textbox = script.Parent.Parent.Textbox
+local event = game.ReplicatedStorage.Events.KickEvent
+
+button.MouseButton1Down:Connect(Function()
+  event:FireServer(textbox.text)
+end)
+
+
+
+-- Server script, placed anywhere that it can be.
+
+local event = game.ReplicatedStorage.Events.KickEvent
+
+event.OnServerEvent:Connect(Function(player, plrtokick)
+  local PlayerToKick = plrtokick:FindFirstChild(game.Players)
+  if PlayerToKick then
+    PlayerToKick:Kick("you were kicked from the game") -- "" being the reason
+  else
+  print("Player not found")
+end)
