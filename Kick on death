@@ -1,0 +1,8 @@
+-- script in StarterCharacterScripts
+
+local char = script.Parent
+local Humanoid = char:FindFirstChild("Humanoid")
+
+Humanoid.Died:Connect(Function(plr) -- dont know if that works, if not use player added
+  plr:Kick()
+end)
