@@ -1,0 +1,8 @@
+local frame = script.Parent.Parent
+local button = script.Parent
+local tweenService = game:GetService("TweenService")
+local tween = tweenService:Create(frame, TweenInfo.New(1), {Size = udim2.New}) -- frame is a instance, tweeninfo is time to completion and inside of {} is what you want it to do
+
+button.MouseButton1Down:Connect(Function()
+  tween:Play()
+end)
